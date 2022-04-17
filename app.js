@@ -2,6 +2,7 @@
 const express = require('express')
 const mongoose = require('mongoose') // 載入 mongoose
 const Restaurant = require('./models/Restaurant') //載入 Restaurant model
+const bodyParser = require('body-parser')
 
 const app = express()
 const port = 3000
@@ -29,6 +30,8 @@ const restaurantList = require('./restaurant.json')
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
 
+app.use(bodyParser.urlencoded({ extended: true }))
+
 // setting static files
 app.use(express.static('public'))
 
@@ -40,6 +43,17 @@ app.get('/', (req, res) => {
     .catch(error => console.log(erroe))
 })
 
+// 新增餐廳頁面
+app.get('/restaurants/new', (req, res) => {
+  return res.render('new')
+})
+
+app.post('/restaurants', (req, res) => {
+  Restaurant.create(req.body)
+    .then(() => res.redirect('/'))
+    .catch(error => console.log(error))
+})
+
 app.get('/search', (req, res) => {
   const keyword = req.query.keyword
   const restaurants = restaurantList.results.filter(restaurant => {
@@ -49,7 +63,7 @@ app.get('/search', (req, res) => {
 })
 
 app.get('/restaurants/:restaurant_id', (req, res) => {
-  const restaurant = restaurantList.results.find(restaurant => restaurant.id.toString() === req.params.restaurant_id )
+  const restaurant = restaurantList.results.find(restaurant => restaurant.id.toString() === req.params.restaurant_id)
   res.render('show', { restaurant: restaurant })
 })
 
