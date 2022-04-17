@@ -1,6 +1,7 @@
 // require packages used in the project
 const express = require('express')
 const mongoose = require('mongoose') // 載入 mongoose
+const Restaurant = require('./models/Restaurant') //載入 Restaurant model
 
 const app = express()
 const port = 3000
@@ -33,7 +34,10 @@ app.use(express.static('public'))
 
 // routes setting
 app.get('/', (req, res) => {
-  res.render('index', { restaurants: restaurantList.results })
+  Restaurant.find() // 取出 Restaurant model 裡的所有資料
+    .lean() // 把Mongoose 的 Model 物件轉換成乾淨的 JavaScript 資料陣列
+    .then(restaurants => res.render('index', { restaurants }))
+    .catch(error => console.log(erroe))
 })
 
 app.get('/search', (req, res) => {
