@@ -1,5 +1,5 @@
 # Restaurant_list
-![Index page about Restaurant List](https://github.com/cksmars/restaurant_list/blob/main/restaurant_list.png)
+![Index page about Restaurant List](https://github.com/cksmars/restaurant_list/blob/main/restaurant_list2.png)
 
 ## 介紹
 此專案提供餐廳的資訊，包含餐廳地址、評分、描述等
@@ -9,6 +9,9 @@
 - 查看餐廳詳細資訊，如:餐廳類別、地址、電話、描述
 - 可用餐廳名稱或餐廳類別搜尋餐廳
 - 點選餐廳地址可跳至 Google 地圖
+- 新增餐廳
+- 編輯餐廳內容
+- 刪除餐廳
 
 
 # 使用方式
@@ -37,9 +40,11 @@ ctrl + c
 # 開發工具
 - Node.js 16.14.2
 - Express 4.16.4
-- Express-Handlebars 3.0.0
+- Express-Handlebars 4.0.2
 - Bootstrap 4.3.1
 - Font-awesome 5.8.1
+- MongoDB
+- mongoose 5.9.17
 
 # 作者
 - Alpha Camp - project design.
