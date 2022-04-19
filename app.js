@@ -8,7 +8,7 @@ const exphbs = require('express-handlebars')
 const mongoose = require('mongoose')
 
 //載入 Restaurant model
-const Restaurant = require('./models/Restaurant')
+const Restaurant = require('./models/restaurant')
 const bodyParser = require('body-parser')
 
 const app = express()
@@ -63,7 +63,7 @@ app.post('/restaurants', (req, res) => {
 // 搜尋餐廳
 app.get('/search', (req, res) => {
   const keyword = req.query.keyword
-  return Restaurant.find()
+  return Restaurant.find({ name: keyword, category: keyword })
     .lean()
     .then(restaurants => {
       const filteredrestaurant = restaurants.filter(

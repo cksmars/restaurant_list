@@ -24,15 +24,24 @@ git clone https://github.com/cksmars/restaurant_list
 ```
 npm install
 ```
-4. 執行啟動伺服器：
+4. 建立一個 .env 文件，並設定環境變數：
+```
+MONGODB_URI=<your connection string>
+```
+5. 新增種子資料，看到done表示新增完成
+```
+npm run seed
+```
+6. 執行啟動伺服器：
 ```
 npm run start
 ```
-5. 若終端機出現此行訊息代表伺服器順利運行，請打開瀏覽器進入以下網址<http://localhost:3000>
+7. 若終端機出現此行訊息代表伺服器順利運行，請打開瀏覽器進入以下網址<http://localhost:3000>
 ```
 Express is listening on http://localhost:3000
+mongodb connected
 ```
-6. 若欲停止使用，請按：
+8. 若欲停止使用，請按：
 ```
 ctrl + c
 ```
