@@ -11,6 +11,9 @@ const mongoose = require('mongoose')
 const Restaurant = require('./models/restaurant')
 const bodyParser = require('body-parser')
 
+// 載入 method-override
+const methodOverride = require('method-override')
+
 const app = express()
 const port = 3000
 
@@ -37,6 +40,9 @@ app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
 
 app.use(bodyParser.urlencoded({ extended: true }))
+
+// 設定每一筆請求都會透過 methodOverride 進行前置處理
+app.use(methodOverride('_method'))
 
 // setting static files
 app.use(express.static('public'))
@@ -94,7 +100,7 @@ app.get('/restaurants/:id/edit', (req, res) => {
 })
 
 // 更新餐廳：編輯餐廳頁面後至資料庫修改特定餐廳的資料
-app.post('/restaurants/:id/edit', (req, res) => {
+app.put('/restaurants/:id', (req, res) => {
   const id = req.params.id
   return Restaurant.findByIdAndUpdate(id, req.body)
     .then(() => res.redirect(`/restaurants/${id}`))
@@ -102,7 +108,7 @@ app.post('/restaurants/:id/edit', (req, res) => {
 })
 
 // 刪除餐廳
-app.post('/restaurants/:id/delete', (req, res) => {
+app.delete('/restaurants/:id', (req, res) => {
   const id = req.params.id
   return Restaurant.findById(id)
     .then(restaurant => restaurant.remove())

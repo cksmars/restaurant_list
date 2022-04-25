@@ -44,7 +44,7 @@
           <div class="card-footer d-flex justify-content-end flex-wrap">
             <a href="/restaurants/{{this._id}}/edit"><button class="btn btn-link btn-sm">編輯</button></a>
             <a href="/restaurants/{{this._id}}"><button class="btn btn-link btn-sm">詳細內容</button></a>
-            <form action="/restaurants/{{this._id}}/delete" method="POST" style="display: inline;">
+            <form action="/restaurants/{{this._id}}?_method=DELETE" method="POST" style="display: inline;">
               <button type="submit" class="btn btn-danger btn-sm">刪除</button>
             </form>
           </div>
