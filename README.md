@@ -1,5 +1,5 @@
 # Restaurant_list
-![Index page about Restaurant List](https://github.com/cksmars/restaurant_list/blob/main/restaurant_list2.png)
+![Index page about Restaurant List](https://github.com/cksmars/restaurant_list/blob/main/restaurant_list3.png)
 
 ## 介紹
 此專案提供餐廳的資訊，包含餐廳地址、評分、描述等
@@ -52,8 +52,11 @@ ctrl + c
 - Express-Handlebars 4.0.2
 - Bootstrap 4.3.1
 - Font-awesome 5.8.1
+- body-parser 1.20.0
 - MongoDB
 - mongoose 5.9.17
+- method-override 3.0.0
+- standard 17.0.0
 
 # 作者
 - Alpha Camp - project design.
