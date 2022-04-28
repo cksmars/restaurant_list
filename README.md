@@ -24,9 +24,9 @@ git clone https://github.com/cksmars/restaurant_list
 ```
 npm install
 ```
-4. 建立一個 .env 文件，並設定環境變數：
+4. 請設定環境變數MONGODB_URI ，如果在 Bash(windows) 指令為下：
 ```
-MONGODB_URI=<your connection string>
+export MONGODB_URI="your connection string"
 ```
 5. 新增種子資料，看到done表示新增完成
 ```
